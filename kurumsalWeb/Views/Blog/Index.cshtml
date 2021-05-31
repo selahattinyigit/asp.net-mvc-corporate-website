@@ -1,0 +1,71 @@
+﻿@model IEnumerable<kurumsalWeb.Models.blog>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<script>
+    $(document).ready( function () {
+    $('#myTable').DataTable(
+    {
+        "language": {
+            "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Turkish.json"
+        }
+    }
+    );
+} );
+</script>
+<h2>Blog Kayıtları</h2>
+
+<p>
+    @Html.ActionLink("Yeni Ekle", "Create")
+</p>
+<table class="table table-bordered table-responsive-sm" id="myTable">
+    <thead>
+        <tr>
+            <th>
+                #
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.baslik)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.resimUrl)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.kategoriId)
+            </th>
+            <th>
+
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.blogId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.baslik)
+                </td>
+
+                <td>
+                    <img src="~/@item.resimUrl" height="100" width="100" class="img-responsive" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.kategori.kategoriAd)
+                </td>
+                <td>
+                    @Html.ActionLink("Güncelle", "Edit", new { id = item.blogId }) |
+
+                    @Html.ActionLink("Sil", "Delete", new { id = item.blogId })
+                </td>
+            </tr>
+
+        }
+    </tbody>
+</table>

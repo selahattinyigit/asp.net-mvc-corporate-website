@@ -1,0 +1,56 @@
+﻿@model IEnumerable<kurumsalWeb.Models.tbKimlik>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<h2>SİTE KİMLİĞİ</h2>
+<table class="table table-striped table-bordered table-responsive-sm" >
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.keyword)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.logoUrl)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.unvan)
+        </th>
+        <th> İŞLEMLER</th>
+        
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.keyword)
+        </td>
+        <td>
+            @Html.Raw(item.description)
+        </td>
+        <td>
+            <img class="img-responsive" src="~/@item.logoUrl" width="200" height="100" />
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.unvan)
+        </td>
+        <td>
+            @Html.ActionLink("GÜNCELLE", "Edit", new { id = item.kimlik_id })
+
+
+
+            
+        </td>
+    </tr>
+}
+
+</table>

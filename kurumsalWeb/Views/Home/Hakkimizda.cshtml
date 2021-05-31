@@ -1,0 +1,14 @@
+﻿@model kurumsalWeb.Models.tbHakkimizda
+@{
+    ViewBag.Title = "Hakkimizda";
+    Layout = "~/Views/Shared/_SiteLayout.cshtml";
+}
+<div class="container">
+    <div class="col-md-12">
+        <h4>Kişisel Blog Hakkında</h4>
+        <img src="~/Content/SiteLayout/img/dummies/dummy-1.jpg" alt="" class="align-left img-responsive" />
+        <p class="embed-responsive">
+          @Html.Raw(Model.aciklama)
+        </p>
+    </div>
+</div>

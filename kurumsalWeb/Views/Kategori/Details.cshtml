@@ -1,0 +1,35 @@
+﻿@model kurumsalWeb.Models.tbKategori
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+<div>
+    <h4>Kategori Detayı</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.kategoriAd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.kategoriAd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.aciklama)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.aciklama)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Güncelle", "Edit", new { id = Model.kategoriId }) |
+    @Html.ActionLink("Geri Dön", "Index")
+</p>

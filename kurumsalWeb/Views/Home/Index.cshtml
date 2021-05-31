@@ -1,0 +1,54 @@
+﻿@model IEnumerable<kurumsalWeb.Models.tbHizmet>
+@{
+    ViewBag.Title = "Index";
+
+}
+<section id="featured">
+    <!-- start slider -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <!-- Slider -->
+                @{
+                    Html.RenderAction("SliderPartial", "Home");
+                }
+                <!-- end slider -->
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="content">
+    <div class="container">
+        
+        <!-- end divider -->
+        <!-- Portfolio Projects -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h4 class="heading">Hizmetlerimiz</h4>
+                <div class="row">
+                    <section id="projects">
+                        <ul id="thumbs" class="portfolio">
+                            @foreach (var item in ViewBag.hizmet)
+                            {
+                                <li class="col-lg-3 design" data-id="id-0" data-type="web">
+                                    <div class="item-thumbs">
+                                        <!-- Fancybox - Gallery Enabled - Title - Full Image -->
+                                        <a class="hover-wrap fancybox img-responsive" data-fancybox-group="gallery" title="@item.baslik" href="~/@item.resimUrl">
+                                            <span class="overlay-img"></span>
+                                            <span class="overlay-img-thumb font-icon-plus"></span>
+                                        </a>
+                                        <!-- Thumb Image and Description -->
+                                        <img src="~/@item.resimUrl" alt="@item.aciklama"class="img-responsive">
+                                    </div>
+                                </li>
+                            }
+                        </ul>
+                    </section>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>

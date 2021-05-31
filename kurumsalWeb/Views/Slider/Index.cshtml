@@ -1,0 +1,46 @@
+﻿@model IEnumerable<kurumsalWeb.Models.tbSlider>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Slider</h2>
+
+<p>
+    @Html.ActionLink("Yeni Ekle", "Create")
+</p>
+<table class="table table-bordered table-responsive-sm" >
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.baslik)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.icerik)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.resimUrl)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.baslik)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.icerik)
+        </td>
+        <td>
+            <img src="~/@item.resimUrl" height="150"width="350" />
+        </td>
+        <td>
+            @Html.ActionLink("Güncelle", "Edit", new { id=item.sliderId }) |
+         
+            @Html.ActionLink("Sil", "Delete", new { id=item.sliderId })
+        </td>
+    </tr>
+}
+
+</table>

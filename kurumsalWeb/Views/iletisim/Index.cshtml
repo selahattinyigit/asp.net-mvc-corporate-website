@@ -1,0 +1,67 @@
+﻿@model IEnumerable<kurumsalWeb.Models.iletisim>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>İLETİŞİM</h1>
+
+
+<table class="table table-striped table-bordered table-responsive-sm">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.adres)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.telefon)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fax)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.whattsap)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.facebook)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.twiter)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.instagram)
+        </th>
+        <th>İŞLEMLER</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.adres)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.telefon)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fax)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.whattsap)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.facebook)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.twiter)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.instagram)
+        </td>
+        <td>
+            @Html.ActionLink("Güncelle", "Edit", new { id=item.iletisimId }) 
+       
+        </td>
+    </tr>
+}
+
+</table>
